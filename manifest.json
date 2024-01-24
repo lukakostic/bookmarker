@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "Bookmarker",
+    "version": "1.0",
+  
+    "description": "Ultimate bookmark helper",
+  
+    "content_scripts": [
+        {
+          "matches": ["<all_urls>"],
+          "js": []
+        }
+      ],
+
+      "browser_action": {
+        "default_title": "Bookmarker",
+        "default_popup": "popup.html"
+      },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "clipboardWrite", 
+      "bookmarks",
+      "<all_urls>"
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+          "id": "3luka1@gmail.com"
+        }
+      }
+      
+  }
+  

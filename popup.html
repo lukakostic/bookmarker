@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <script src="popup.js"></script>
+  <style>
+    html{
+        max-width: 300px;
+    }
+    body {
+        width: calc(100% - 10px);
+      margin: 0;
+      padding: 5;
+    }
+
+    .checkbox-container {
+      display: flex;
+    }
+
+    input[type="radio"] {
+      margin-right: 5px;
+      transform: scale(1.5);
+      font-size: 11px;
+    }
+    #buttonContainer {
+      width: 100%;
+      text-align: center; /* Center the buttons within the container */
+    }
+
+    :not(li) > button {
+      width: 100%;
+      padding: 5px;
+      margin: 4px;
+      cursor: pointer;
+      box-sizing: border-box; /* Include padding in the button width */
+    }
+    li > button:not(.expand-button) {
+      width: calc(100% - 30px);
+    }
+    li > button {
+      font-size: 14px;
+      padding: 3px;
+      margin: 3px;
+    }
+
+    #descriptionContainer {
+      width: 100%;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      max-height: 0;
+    }
+
+    #descriptionText {
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    /* Style for the single-line text input */
+    #fullWidthTextInput {
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    ul, li{
+      margin: 0;
+      padding: 0;
+    }
+    .tree-node {
+      margin-left: 15px;
+      border-left: 1px solid gray;
+      list-style: none;
+    }
+    #tree-container>.tree-node{
+      margin-left: 0px;
+    }
+
+    .expand-button {
+      cursor: pointer;
+      margin-right: 3px;
+    }
+  </style>
+  <body>
+
+<!-- Full-width single-line text input -->
+<input type="text" id="fullWidthTextInput" placeholder="Type something...">
+
+<!-- Collapsible/expandable description box -->
+<button id="toggleDescriptionButton" style="height: 16px;padding: 0;">Toggle Description</button>
+<div id="descriptionContainer">
+  <textarea style="width: 100%;" rows="4"  id="descriptionText"></textarea>
+</div>
+
+    <div class="checkbox-container" style="margin-top:10px">
+      <label>
+        <input type="radio" name="checkboxGroup" id="chkSelected" checked> Selected
+      </label>
+      <label>
+        <input type="radio" name="checkboxGroup" id="chkAll"> All
+      </label>
+      
+      <label>
+        <input type="checkbox" id="close"> Close
+      </label>
+      
+    </div>
+    <div id="tree-container"></div>
+    <!-- <div id="popup-content">
+      <button id="savSel">Selected</button>
+      <button id="savAll">All</button>
+      <button>Snake</button>
+      <button type="reset">Reset</button>
+    </div> -->
+    <div id="error-content"></div>
+    <div id="buttonContainer" style="margin-top:10px">
+    </div>
+  </body>
+</html>
